@@ -1,21 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { DrawerContent } from "./screens/DrawerContent";
+
+import MainTabScreen from "./screens/MainTabScreen";
+import RootStackScreen from "./screens/RootStackScreen";
+import LoadingPage from "./screens/LoadingPage";
+import { AuthSession } from "expo";
+import UserStore from "./stores/UserStore";
+import { observer } from "mobx-react";
+
+const Drawer = createDrawerNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      {UserStore.isLoggedIn === true ? (
+        UserStore.loading === false ? (
+          <Drawer.Navigator
+            drawerContent={(props) => <DrawerContent {...props} />}
+          >
+            <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+            {/* <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+      <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+      <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} /> */}
+          </Drawer.Navigator>
+        ) : (
+          <Drawer.Navigator
+            drawerContent={(props) => <DrawerContent {...props} />}
+          >
+            <Drawer.Screen name="HomeDrawer" component={LoadingPage} />
+            {/* <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+          <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+          <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} /> */}
+          </Drawer.Navigator>
+        )
+      ) : (
+        <RootStackScreen />
+      )}
+    </NavigationContainer>
   );
 }
+
+export default observer(App);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
