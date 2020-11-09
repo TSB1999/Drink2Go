@@ -12,6 +12,8 @@ import {
   Switch,
 } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import UserStore from "../stores/UserStore";
+import { observer } from "mobx-react";
 
 export function DrawerContent(props) {
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
@@ -125,7 +127,7 @@ export function DrawerContent(props) {
           )}
           label="Sign Out"
           onPress={() => {
-            signOut();
+            UserStore.isLoggedIn == false;
           }}
         />
       </Drawer.Section>

@@ -44,6 +44,8 @@ export class Post extends Component {
           caption={this.props.post.body}
           postedAt={this.props.post.createdAt}
           postID={this.props.post.postID}
+          status={this.props.post.status}
+          trackID={this.props.post.trackID}
         />
       </View>
     );
