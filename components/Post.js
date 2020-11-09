@@ -43,6 +43,7 @@ export class Post extends Component {
           commentCount={this.props.post.commentCount}
           caption={this.props.post.body}
           postedAt={this.props.post.createdAt}
+          postID={this.props.post.postID}
         />
       </View>
     );

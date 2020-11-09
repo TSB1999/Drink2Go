@@ -37,7 +37,7 @@ class LoadingPage extends Component {
         },
       })
       .then((res) => {
-        // UserStore.thisUserProfile = res.data;
+        UserStore.userDetails = res.data;
         console.log(res.data);
       })
       .catch((err) => console.log(err));
@@ -46,17 +46,9 @@ class LoadingPage extends Component {
   }
 
   render() {
-    // let recentPostsMarkup = UserStore.posts ? (
-    //   post.map((post) => (
-    //     <Post key={post.postID} post={post} allUsers={allUsers} />
-    //   ))
-    // ) : (
-    //   <Text>Loading</Text>
-    // );
     return (
       <SafeAreaView>
         <Text>Loading</Text>
-        {/* <View>{recentPostsMarkup}</View> */}
       </SafeAreaView>
     );
   }
