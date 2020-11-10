@@ -2,12 +2,11 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    margin: 5,
+    backgroundColor: "#fff",
   },
   iconsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#0077f6",
     borderRadius: 10,
   },
   iconContainer2: {
@@ -17,7 +16,7 @@ const styles = StyleSheet.create({
   },
   number: {
     marginLeft: 5,
-    color: "whitesmoke",
+    color: "#1150A9",
     textAlign: "center",
   },
   leftIcons: {

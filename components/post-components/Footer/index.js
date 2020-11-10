@@ -269,6 +269,22 @@ const Footer = ({
             </View>
           </TouchableWithoutFeedback>
 
+          <View style={styles.iconContainer2}>
+            <FontistoIcon
+              name="comment"
+              size={23}
+              color={"#21295c"}
+              style={{ margin: 8 }}
+            />
+            {commentCount == !0 ? (
+              <Text style={styles.number}>{commentCount}</Text>
+            ) : (
+              <View style={styles.number}></View>
+            )}
+          </View>
+        </View>
+
+        <View style={styles.iconContainer2}>
           <TouchableWithoutFeedback onPress={onSavePressed}>
             <View style={styles.iconContainer2}>
               {isSaved ? (
@@ -289,24 +305,8 @@ const Footer = ({
             </View>
           </TouchableWithoutFeedback>
 
-          <View style={styles.iconContainer2}>
-            <FontistoIcon
-              name="comment"
-              size={23}
-              color={"#21295c"}
-              style={{ margin: 8 }}
-            />
-            {commentCount == !0 ? (
-              <Text style={styles.number}>{commentCount}</Text>
-            ) : (
-              <View style={styles.number}></View>
-            )}
-          </View>
-        </View>
-
-        <View style={styles.iconContainer2}>
           <Feather
-            name="send"
+            name="share-2"
             size={25}
             color={"#21295c"}
             style={{ margin: 8 }}

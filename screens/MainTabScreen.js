@@ -84,40 +84,61 @@ const MainTabScreen = () => {
 
 export default MainTabScreen;
 
-const HomeStackScreen = ({ navigation }) => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: "#007bff",
-      },
-      headerTintColor: "white",
-    }}
-  >
-    <HomeStack.Screen
-      name="Home"
-      component={HomeScreen}
-      options={{
-        title: "meloDIFY",
-        headerLeft: () => (
-          <Icon.Button
-            name="ios-menu"
-            size={30}
-            backgroundColor="#007bff"
-            color="#21295c"
-            onPress={() => navigation.openDrawer()}
-            style={{ marginLeft: 5 }}
-          ></Icon.Button>
-        ),
-        headerRight: () => (
-          <Icon1.Button name="pencil-plus" size={30} color={"#21295c"} />
-        ),
+const HomeStackScreen = ({ navigation }) => {
+  const [postScreen, setPostScreen] = React.useState(false);
+  return (
+    <HomeStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#007bff",
+        },
+        headerTintColor: "white",
       }}
-    />
-    {/* <HomeStack.Screen name="Updates" component={UpdatesScreen} />
+    >
+      <HomeStack.Screen
+        name="Home"
+        component={() => <HomeScreen postScreen={postScreen}></HomeScreen>}
+        options={{
+          title: "meloDIFY",
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={30}
+              backgroundColor="#007bff"
+              color="#21295c"
+              onPress={() => navigation.openDrawer()}
+              style={{ marginLeft: 5 }}
+            ></Icon.Button>
+          ),
+          headerRight: () => {
+            if (postScreen) {
+              return (
+                <Icon1.Button
+                  name="cancel"
+                  size={30}
+                  color={"#FC440F"}
+                  onPress={() => setPostScreen(!postScreen)}
+                />
+              );
+            } else {
+              return (
+                <Icon1.Button
+                  name="pencil-plus"
+                  size={30}
+                  color={"#21295c"}
+                  onPress={() => setPostScreen(!postScreen)}
+                />
+              );
+            }
+          },
+        }}
+      />
+      {/* <HomeStack.Screen name="Updates" component={UpdatesScreen} />
       <HomeStack.Screen name="Me" component={ProfileScreen} />
       <HomeStack.Screen name="Settings" component={SettingsScreen} /> */}
-  </HomeStack.Navigator>
-);
+    </HomeStack.Navigator>
+  );
+};
 
 const UpdatesStackScreen = ({ navigation }) => (
   <UpdatesStack.Navigator

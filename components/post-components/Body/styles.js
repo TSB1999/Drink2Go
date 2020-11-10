@@ -4,9 +4,9 @@ const styles = StyleSheet.create({
   image: {
     width: 150,
     height: 150,
-    borderRadius: 10,
     borderWidth: 1.8,
     borderColor: "#fff",
+    borderRadius: 10,
   },
   image2: {
     width: Dimensions.get("window").width,
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     alignItems: "center",
+    backgroundColor: "#fff",
   },
   track: {
     marginBottom: 5,
@@ -38,23 +39,23 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 20,
-    color: "white",
+    color: "#007bff",
     margin: 2,
-    fontStyle: "italic",
+    fontFamily: "Arial",
+    fontWeight: "bold",
   },
   artist: {
     fontSize: 13,
     fontWeight: "bold",
-    backgroundColor: "white",
-    color: "#007bff",
+    color: "white",
     padding: 5,
     borderRadius: 5,
   },
   caption: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     backgroundColor: "white",
-    color: "#007bff",
+    color: "#21295c",
     padding: 5,
     borderRadius: 5,
     textAlign: "center",
