@@ -7,16 +7,17 @@ const styles = StyleSheet.create({
   iconsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 5,
+    backgroundColor: "#0077f6",
+    borderRadius: 10,
   },
   iconContainer2: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 5,
+    padding: 2,
   },
   number: {
     marginLeft: 5,
-    color: "#fff",
+    color: "whitesmoke",
     textAlign: "center",
   },
   leftIcons: {

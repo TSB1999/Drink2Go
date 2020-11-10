@@ -6,8 +6,6 @@ import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import FAIcon from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
 import styles from "./styles";
 import axios from "axios";
 import UserStore from "../../../stores/UserStore";
@@ -17,7 +15,6 @@ import spotifyAPI from "../../SpotifyAPI";
 const Footer = ({
   likesCount: likesCountProp,
   caption,
-  postedAt,
   commentCount,
   postID,
   status,
@@ -195,7 +192,7 @@ const Footer = ({
         .then((response) => {
           if (response[0] === true) {
             setIsSave(true);
-            console.log(`Saved ${status}`);
+            // console.log(`Saved ${status}`);
           }
         })
         .catch((err) => {
@@ -208,7 +205,7 @@ const Footer = ({
         .then((response) => {
           if (response[0] === true) {
             setIsSave(true);
-            console.log(`Saved ${status}`);
+            // console.log(`Saved ${status}`);
           }
         })
         .catch((err) => {
@@ -221,7 +218,7 @@ const Footer = ({
         .then((response) => {
           if (response[0] === true) {
             setIsSave(true);
-            console.log(`Saved ${status}`);
+            // console.log(`Saved ${status}`);
           }
         })
         .catch((err) => {
@@ -234,7 +231,7 @@ const Footer = ({
         .then((response) => {
           if (response[0] === true) {
             setIsSave(true);
-            console.log(`Saved ${status}`);
+            // console.log(`Saved ${status}`);
           }
         })
         .catch((err) => {
@@ -243,7 +240,6 @@ const Footer = ({
         });
     }
   }, []);
-  dayjs.extend(relativeTime);
   return (
     <View style={styles.container}>
       <View style={styles.iconsContainer}>
@@ -272,19 +268,6 @@ const Footer = ({
               )}
             </View>
           </TouchableWithoutFeedback>
-          <View style={styles.iconContainer2}>
-            <FontistoIcon
-              name="comment"
-              size={23}
-              color={"#21295c"}
-              style={{ margin: 8 }}
-            />
-            {commentCount == !0 ? (
-              <Text style={styles.number}>{commentCount}</Text>
-            ) : (
-              <View style={styles.number}></View>
-            )}
-          </View>
 
           <TouchableWithoutFeedback onPress={onSavePressed}>
             <View style={styles.iconContainer2}>
@@ -303,13 +286,22 @@ const Footer = ({
                   style={{ margin: 8 }}
                 />
               )}
-              {isSaved ? (
-                <Text style={styles.number}>saved</Text>
-              ) : (
-                <Text></Text>
-              )}
             </View>
           </TouchableWithoutFeedback>
+
+          <View style={styles.iconContainer2}>
+            <FontistoIcon
+              name="comment"
+              size={23}
+              color={"#21295c"}
+              style={{ margin: 8 }}
+            />
+            {commentCount == !0 ? (
+              <Text style={styles.number}>{commentCount}</Text>
+            ) : (
+              <View style={styles.number}></View>
+            )}
+          </View>
         </View>
 
         <View style={styles.iconContainer2}>
@@ -321,9 +313,6 @@ const Footer = ({
           />
         </View>
       </View>
-
-      <Text style={styles.caption}>{caption}</Text>
-      <Text style={styles.postedAt}>{dayjs(postedAt).fromNow()}</Text>
     </View>
   );
 };

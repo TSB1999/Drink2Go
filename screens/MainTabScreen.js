@@ -9,6 +9,7 @@ import SpotifyScreen from "./Spotify.js";
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import Feather from "react-native-vector-icons/Feather";
 
 const HomeStack = createStackNavigator();
 const UpdatesStack = createStackNavigator();
@@ -96,15 +97,19 @@ const HomeStackScreen = ({ navigation }) => (
       name="Home"
       component={HomeScreen}
       options={{
-        title: "Home",
+        title: "meloDIFY",
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
-            size={25}
+            size={30}
             backgroundColor="#007bff"
             color="#21295c"
             onPress={() => navigation.openDrawer()}
+            style={{ marginLeft: 5 }}
           ></Icon.Button>
+        ),
+        headerRight: () => (
+          <Icon1.Button name="pencil-plus" size={30} color={"#21295c"} />
         ),
       }}
     />

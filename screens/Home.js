@@ -19,7 +19,7 @@ const HomeScreen = ({ navigation }) => {
     <Text>Loading</Text>
   );
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: "#0077f6" }}>
       <ScrollView>{recentPostsMarkup}</ScrollView>
     </SafeAreaView>
   );

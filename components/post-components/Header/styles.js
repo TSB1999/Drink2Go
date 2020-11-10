@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: "#0077f6",
+    margin: 5,
+    borderRadius: 10,
   },
   left: {
     flexDirection: "row",
@@ -15,7 +18,7 @@ const styles = StyleSheet.create({
   name: {
     alignSelf: "center",
     fontWeight: "bold",
-    color: "#fff",
+    color: "#CDEDF6",
   },
 });
 
