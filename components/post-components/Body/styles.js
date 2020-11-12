@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     height: 150,
     borderWidth: 1.8,
     borderColor: "#fff",
-    borderRadius: 10,
   },
   image2: {
     width: Dimensions.get("window").width,
@@ -28,14 +27,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   track: {
-    marginBottom: 5,
-    marginLeft: 5,
+    marginTop: 2,
+    marginRight: 2,
     padding: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "grey",
     fontSize: 15,
-    borderRadius: 10,
     fontWeight: "bold",
-    color: "grey",
+    color: "#fff",
   },
   name: {
     fontSize: 20,
@@ -53,7 +51,6 @@ const styles = StyleSheet.create({
   },
   caption: {
     fontSize: 18,
-    fontWeight: "bold",
     backgroundColor: "white",
     color: "#21295c",
     padding: 5,

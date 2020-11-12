@@ -6,17 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 const Body = ({ thisTrack, caption, status }) => {
   let tracklist = thisTrack.track ? (
     thisTrack.track.map((track) => (
-      <View
-        style={{
-          borderBottomWidth: 1,
-          borderColor: "black",
-          borderRadius: 5,
-        }}
-      >
-        <Text key={uuidv4()} style={styles.track}>
-          {track}
-        </Text>
-      </View>
+      <Text key={uuidv4()} style={styles.track}>
+        {track}
+      </Text>
     ))
   ) : (
     <Text>Loading</Text>
@@ -74,9 +66,7 @@ const Body = ({ thisTrack, caption, status }) => {
           </View>
 
           <View style={styles.block}>
-            <ScrollView style={{ height: 150, borderRadius: 10 }}>
-              {tracklist}
-            </ScrollView>
+            <ScrollView style={{ height: 150 }}>{tracklist}</ScrollView>
           </View>
         </View>
 

@@ -97,6 +97,7 @@ export class Post extends Component {
           borderBottomWidth: 2,
           borderColor: "#21295c",
           backgroundColor: "#007bff",
+          marginBottom: 10,
         }}
       >
         <Header
