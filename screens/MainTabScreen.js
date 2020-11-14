@@ -5,6 +5,7 @@ import HomeScreen from "./Home.js";
 import UpdatesScreen from "./Updates.js";
 import ProfileScreen from "./Profile.js";
 import SpotifyScreen from "./Spotify.js";
+import PostScreen from "./PostScreen.js";
 
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -13,6 +14,7 @@ import Feather from "react-native-vector-icons/Feather";
 
 const HomeStack = createStackNavigator();
 const UpdatesStack = createStackNavigator();
+const PostStack = createStackNavigator();
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
@@ -20,7 +22,8 @@ const MainTabScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      activeColor="#fff"
+      activeColor="#007bff"
+      inactiveColor="#3e2465"
       style={{ backgroundColor: "tomato" }}
     >
       <Tab.Screen
@@ -28,7 +31,7 @@ const MainTabScreen = () => {
         component={HomeStackScreen}
         options={{
           tabBarLabel: "Home",
-          tabBarColor: "#007bff",
+          tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
             <Icon1 name="chart-timeline-variant" color={color} size={26} />
           ),
@@ -39,17 +42,17 @@ const MainTabScreen = () => {
         component={UpdatesStackScreen}
         options={{
           tabBarLabel: "Updates",
-          tabBarColor: "#191e3c",
+          tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-notifications" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Discover"
-        component={UserStackScreen}
+        name="Post"
+        component={PostStackScreen}
         options={{
-          tabBarLabel: "Discover",
+          tabBarLabel: "Post",
           tabBarColor: "#21295c",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-musical-notes" color={color} size={26} />
@@ -90,9 +93,9 @@ const HomeStackScreen = ({ navigation }) => {
     <HomeStack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#007bff",
+          backgroundColor: "#fff",
         },
-        headerTintColor: "white",
+        headerTintColor: "#007bff",
       }}
     >
       <HomeStack.Screen
@@ -104,33 +107,12 @@ const HomeStackScreen = ({ navigation }) => {
             <Icon.Button
               name="ios-menu"
               size={30}
-              backgroundColor="#007bff"
+              backgroundColor="#fff"
               color="#21295c"
               onPress={() => navigation.openDrawer()}
               style={{ marginLeft: 5 }}
             ></Icon.Button>
           ),
-          headerRight: () => {
-            if (postScreen) {
-              return (
-                <Icon1.Button
-                  name="cancel"
-                  size={30}
-                  color={"#FC440F"}
-                  onPress={() => setPostScreen(!postScreen)}
-                />
-              );
-            } else {
-              return (
-                <Icon1.Button
-                  name="pencil-plus"
-                  size={30}
-                  color={"#21295c"}
-                  onPress={() => setPostScreen(!postScreen)}
-                />
-              );
-            }
-          },
         }}
       />
       {/* <HomeStack.Screen name="Updates" component={UpdatesScreen} />
@@ -139,6 +121,34 @@ const HomeStackScreen = ({ navigation }) => {
     </HomeStack.Navigator>
   );
 };
+
+const PostStackScreen = ({ navigation }) => (
+  <PostStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#191e3c",
+      },
+      headerTintColor: "#007bff",
+    }}
+  >
+    <PostStack.Screen
+      name="Post"
+      component={PostScreen}
+      options={{
+        title: "Post",
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#191e3c"
+            color="#007bff"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </PostStack.Navigator>
+);
 
 const UpdatesStackScreen = ({ navigation }) => (
   <UpdatesStack.Navigator

@@ -14,7 +14,7 @@ const Header = ({ imageUri, name, postedAt }) => {
         <ProfilePicture uri={imageUri} size={40} />
         <Text style={styles.name}>
           {`${name}`}
-          <Text style={{ color: "#1150A9" }}>
+          <Text style={{ color: "#CDEDF6" }}>
             {" "}
             ± {dayjs(postedAt).fromNow()}
           </Text>
@@ -22,7 +22,7 @@ const Header = ({ imageUri, name, postedAt }) => {
       </View>
 
       <View style={styles.right}>
-        <Icon name="dots-three-vertical" size={16} color="#fff" />
+        <Icon name="dots-three-vertical" size={16} color="#007bff" />
       </View>
     </View>
   );

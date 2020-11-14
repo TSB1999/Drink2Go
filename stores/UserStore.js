@@ -13,6 +13,7 @@ class UserStore {
       userDetails: {},
       spotifyUserDetails: {},
       allPosts: [],
+      trackDetails: {},
     });
   }
 }

@@ -21,9 +21,7 @@ const Body = ({ thisTrack, caption, status }) => {
           <Text style={styles.name}>{thisTrack.name}</Text>
           <View
             style={{
-              borderRadius: 1,
               backgroundColor: "#007bff",
-              borderRadius: 10,
               marginBottom: 5,
             }}
           >
@@ -43,9 +41,7 @@ const Body = ({ thisTrack, caption, status }) => {
           <Text style={styles.name}>{thisTrack.name}</Text>
           <View
             style={{
-              borderRadius: 1,
               backgroundColor: "#007bff",
-              borderRadius: 10,
               marginBottom: 5,
             }}
           >

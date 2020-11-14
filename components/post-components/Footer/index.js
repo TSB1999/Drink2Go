@@ -213,31 +213,32 @@ const Footer = ({
           console.log(err);
         });
     } else if (status === "Artist") {
-      spotifyAPI
-        .followArtists([trackID])
-        .then((response) => {
-          if (response[0] === true) {
-            setIsSave(true);
-            // console.log(`Saved ${status}`);
-          }
-        })
-        .catch((err) => {
-          setIsSave(false);
-          console.log(err);
-        });
+      // spotifyAPI
+      //   .followArtists([trackID])
+      //   .then((response) => {
+      //     if (response[0] === true) {
+      //       setIsSave(true);
+      //       // console.log(`Saved ${status}`);
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     setIsSave(false);
+      //     console.log(err);
+      //   });
     } else if (status === "Playlist") {
-      spotifyAPI
-        .followPlaylist([trackID])
-        .then((response) => {
-          if (response[0] === true) {
-            setIsSave(true);
-            // console.log(`Saved ${status}`);
-          }
-        })
-        .catch((err) => {
-          setIsSave(false);
-          console.log(err);
-        });
+      // spotifyAPI
+      //   .areFollowingPlaylist([trackID, UserStore.spotifyUserDetails.user_id])
+      //   .then((response) => {
+      //     console.log(response);
+      //     if (response[0] === true) {
+      //       setIsSave(true);
+      //       // console.log(`Saved ${status}`);
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     setIsSave(false);
+      //     console.log(err);
+      //   });
     }
   }, []);
   return (

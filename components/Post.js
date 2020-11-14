@@ -95,8 +95,8 @@ export class Post extends Component {
       <View
         style={{
           borderBottomWidth: 2,
-          borderColor: "#21295c",
-          backgroundColor: "#007bff",
+          borderColor: "#007bff",
+          backgroundColor: "#fff",
           marginBottom: 10,
         }}
       >

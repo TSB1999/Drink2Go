@@ -33,17 +33,7 @@ function wait(timeout) {
 }
 
 const HomeScreen = ({ navigation, postScreen }) => {
-  const [data, setData] = React.useState({
-    track: "",
-  });
-
   const [refreshing, setRefreshing] = React.useState(false);
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: "first", title: "Content" },
-    { key: "second", title: "Caption" },
-    { key: "third", title: "Preview" },
-  ]);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -61,122 +51,22 @@ const HomeScreen = ({ navigation, postScreen }) => {
     }, [refreshing]);
   });
 
-  const handleTrackChange = (val) => {
-    setData(
-      {
-        ...data,
-        track: val,
-      }
-      // () => {
-      //   spotifyAPI.searchTracks(data.track).then(
-      //     (data) => {
-      //       console.log(data);
-      //       // data.tracks.items.map((item) => (
-      //       //     trackQuery = {
-      //       //         id: item.id,
-      //       //         title: item.name,
-      //       //         artist: item.artists[0].name,
-      //       //         artistID: item.artists[0].id,
-      //       //         albumName: item.album.name,
-      //       //         image: item.album.images[0].url,
-      //       //         releaseDate: item.album.release_date,
-      //       //         popularity: item.popularity,
-      //       //         duration: item.duration_ms
-      //       //     },
-      //       //     this.setState({ searchTab: true }),
-      //       //     this.setState({ song_title: [...this.state.song_title, trackQuery] }),
-      //       //     this.setState({ song: '' })
-      //       // ));
-      //       // console.log(this.state.song_title);
-      //     },
-      //     function (err) {
-      //       console.error(err);
-      //     }
-      //   );
-      // }
-    );
-  };
-
   let recentPostsMarkup = UserStore.allPosts ? (
     UserStore.allPosts.map((post) => <Post key={post.postID} post={post} />)
   ) : (
     <Text>Loading</Text>
   );
-  if (postScreen) {
-    const [selectedValue, setSelectedValue] = React.useState("track");
-
-    const FirstRoute = () => (
-      <View style={[styles.scene, { backgroundColor: "#fff" }]}>
-        <View style={styles.action}>
-          <View style={{ margin: 10 }}>
-            <TextInput
-              placeholder="Search for music"
-              style={styles.textInput}
-              autoCapitalize="none"
-              onChangeText={(val) => handleTrackChange(val)}
-              style
-              value={data}
-            />
-          </View>
-        </View>
-
-        <View></View>
-      </View>
-    );
-
-    const SecondRoute = () => (
-      <View style={[styles.scene, { backgroundColor: "#673ab7" }]} />
-    );
-
-    const ThirdRoute = () => (
-      <View style={[styles.scene, { backgroundColor: "#ff" }]} />
-    );
-
-    const renderScene = SceneMap({
-      first: FirstRoute,
-      second: SecondRoute,
-      third: ThirdRoute,
-    });
-
-    const initialLayout = { width: Dimensions.get("window").width };
-    return (
-      <Animatable.View animation="fadeInUpBig" style={styles.container}>
-        <StatusBar backgroundColor="#009387" barStyle="light-content" />
-        <View style={styles.header}>
-          <Picker
-            selectedValue={selectedValue}
-            style={{ backgroundColor: "whitesmoke", borderRadius: 20 }}
-          >
-            <Picker.Item label="Lyric" value="lyric" />
-            <Picker.Item label="Playlist" value="playlist" />
-            <Picker.Item label="Track" value="track" />
-            <Picker.Item label="Album" value="album" />
-            <Picker.Item label="Artist" value="artist" />
-          </Picker>
-        </View>
-        <Animatable.View style={styles.footer} animation="fadeInUpBig">
-          <TabView
-            navigationState={{ index, routes }}
-            renderScene={renderScene}
-            onIndexChange={setIndex}
-            initialLayout={initialLayout}
-          />
-        </Animatable.View>
-      </Animatable.View>
-    );
-  } else {
-    return (
-      <SafeAreaView style={{ backgroundColor: "#0077f6" }}>
-        <ScrollView
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
-        >
-          {recentPostsMarkup}
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
+  return (
+    <SafeAreaView style={{ backgroundColor: "#007bff" }}>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        {recentPostsMarkup}
+      </ScrollView>
+    </SafeAreaView>
+  );
 };
 
 export default observer(HomeScreen);
