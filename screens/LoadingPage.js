@@ -23,7 +23,7 @@ class LoadingPage extends Component {
     axios
       .get("https://europe-west1-projectmelo.cloudfunctions.net/api/posts")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         UserStore.allPosts = res.data;
       })
       .catch((err) => console.log(err));
@@ -38,7 +38,7 @@ class LoadingPage extends Component {
       })
       .then((res) => {
         UserStore.userDetails = res.data;
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
 

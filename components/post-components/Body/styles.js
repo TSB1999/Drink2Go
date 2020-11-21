@@ -30,12 +30,15 @@ const styles = StyleSheet.create({
   track: {
     marginTop: 2,
     marginRight: 2,
-    padding: 10,
-    backgroundColor: "#007bff",
-    fontSize: 15,
+    backgroundColor: "rgb(33,41,92)",
+    backgroundColor:
+      "linear-gradient(72deg, rgba(33,41,92,0.7497373949579832) 35%, rgba(0,123,255,1) 100%)",
+    fontSize: 13,
     fontWeight: "bold",
     color: "#fff",
     fontFamily: "Arial",
+    textAlign: "right",
+    flexDirection: "row",
   },
   name: {
     fontSize: 15,
@@ -43,6 +46,7 @@ const styles = StyleSheet.create({
     margin: 2,
     fontFamily: "Arial",
     fontWeight: "bold",
+    backgroundColor: "transparent",
   },
   artist: {
     fontSize: 13,
@@ -52,13 +56,10 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
   },
   caption: {
-    fontSize: 18,
-    // fontWeight: "bold",
-    backgroundColor: "#fff",
+    fontSize: 15,
+    fontWeight: "bold",
     color: "#007bff",
     padding: 5,
-    borderRadius: 5,
-    textAlign: "center",
     fontFamily: "Arial",
   },
 });

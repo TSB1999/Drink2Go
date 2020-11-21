@@ -75,7 +75,7 @@ const Footer = ({
         spotifyAPI
           .addToMySavedTracks([trackID])
           .then((response) => {
-            console.log(response);
+            // console.log(response);
           })
           .catch((err) => {
             setIsSave(false);
@@ -85,7 +85,7 @@ const Footer = ({
         spotifyAPI
           .addToMySavedAlbums([trackID])
           .then((response) => {
-            console.log(response);
+            // console.log(response);
           })
           .catch((err) => {
             setIsSave(false);
@@ -95,7 +95,7 @@ const Footer = ({
         spotifyAPI
           .followArtists([trackID])
           .then((response) => {
-            console.log(response);
+            //   console.log(response);
           })
           .catch((err) => {
             setIsSave(false);
@@ -124,7 +124,7 @@ const Footer = ({
         spotifyAPI
           .removeFromMySavedTracks([trackID])
           .then((response) => {
-            console.log(response);
+            // console.log(response);
           })
           .catch((err) => {
             setIsSave(true);
@@ -134,7 +134,7 @@ const Footer = ({
         spotifyAPI
           .removeFromMySavedAlbums([trackID])
           .then((response) => {
-            console.log(response);
+            // console.log(response);
           })
           .catch((err) => {
             setIsSave(true);
@@ -144,7 +144,7 @@ const Footer = ({
         spotifyAPI
           .unfollowArtists([trackID])
           .then((response) => {
-            console.log(response);
+            // console.log(response);
           })
           .catch((err) => {
             setIsSave(true);
@@ -154,7 +154,7 @@ const Footer = ({
         spotifyAPI
           .unfollowPlaylist([trackID])
           .then((response) => {
-            console.log(response);
+            // console.log(response);
           })
           .catch((err) => {
             setIsSave(true);
@@ -255,18 +255,18 @@ const Footer = ({
                   style={{ margin: 8 }}
                 />
               ) : (
-                <ADIcon
-                  name="hearto"
-                  size={25}
-                  color={"#21295c"}
-                  style={{ margin: 8 }}
-                />
-              )}
+                  <ADIcon
+                    name="hearto"
+                    size={25}
+                    color={"#21295c"}
+                    style={{ margin: 8 }}
+                  />
+                )}
               {likesCount == !0 ? (
                 <Text style={styles.number}>{likesCount}</Text>
               ) : (
-                <View style={styles.number}></View>
-              )}
+                  <View style={styles.number}></View>
+                )}
             </View>
           </TouchableWithoutFeedback>
 
@@ -280,8 +280,8 @@ const Footer = ({
             {commentCount == !0 ? (
               <Text style={styles.number}>{commentCount}</Text>
             ) : (
-              <View style={styles.number}></View>
-            )}
+                <View style={styles.number}></View>
+              )}
           </View>
         </View>
 
@@ -296,13 +296,13 @@ const Footer = ({
                   style={{ margin: 8 }}
                 />
               ) : (
-                <MaterialCommunityIcons
-                  name="content-save-outline"
-                  size={25}
-                  color={"#21295c"}
-                  style={{ margin: 8 }}
-                />
-              )}
+                  <MaterialCommunityIcons
+                    name="content-save-outline"
+                    size={25}
+                    color={"#21295c"}
+                    style={{ margin: 8 }}
+                  />
+                )}
             </View>
           </TouchableWithoutFeedback>
 

@@ -14,6 +14,7 @@ class UserStore {
       spotifyUserDetails: {},
       allPosts: [],
       trackDetails: {},
+      endPost: false,
     });
   }
 }

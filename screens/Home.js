@@ -7,6 +7,7 @@ import {
   RefreshControl,
   Text,
   Button,
+  FlatList,
   Dimensions,
   TouchableOpacity,
   StatusBar,
@@ -54,15 +55,23 @@ const HomeScreen = ({ navigation, postScreen }) => {
   let recentPostsMarkup = UserStore.allPosts ? (
     UserStore.allPosts.map((post) => <Post key={post.postID} post={post} />)
   ) : (
-    <Text>Loading</Text>
-  );
+      <Text>Loading</Text>
+    );
   return (
     <SafeAreaView style={{ backgroundColor: "#007bff" }}>
       <ScrollView
+        style={{ backgroundColor: "#007bff", marginTop: 2 }}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
+        {/* <FlatList
+          data={UserStore.allPosts}
+          renderItem={({ item }) => (
+            <Post post={item} />
+          )}
+          keyExtractor={item => item.postID}
+        /> */}
         {recentPostsMarkup}
       </ScrollView>
     </SafeAreaView>

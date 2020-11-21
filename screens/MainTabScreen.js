@@ -11,6 +11,8 @@ import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Feather from "react-native-vector-icons/Feather";
+import UserStore from "../stores/UserStore.js";
+import { observer } from "mobx-react";
 
 const HomeStack = createStackNavigator();
 const UpdatesStack = createStackNavigator();
@@ -23,7 +25,7 @@ const MainTabScreen = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       activeColor="#007bff"
-      inactiveColor="#3e2465"
+      inactiveColor="black"
       style={{ backgroundColor: "tomato" }}
     >
       <Tab.Screen
@@ -38,35 +40,35 @@ const MainTabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Updates"
-        component={UpdatesStackScreen}
+        name="Me"
+        component={UserStackScreen}
         options={{
-          tabBarLabel: "Updates",
+          tabBarLabel: "Me",
           tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-notifications" color={color} size={26} />
+            <Icon name="ios-person" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Post"
+        name="Discover"
         component={PostStackScreen}
         options={{
-          tabBarLabel: "Post",
-          tabBarColor: "#21295c",
+          tabBarLabel: "Discover",
+          tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-musical-notes" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Inbox"
         component={UserStackScreen}
         options={{
-          tabBarLabel: "Me",
-          tabBarColor: "#21295c",
+          tabBarLabel: "Messages",
+          tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-person" color={color} size={26} />
+            <Icon1 name="message-reply-text" color={color} size={26} />
           ),
         }}
       />
@@ -85,11 +87,12 @@ const MainTabScreen = () => {
   );
 };
 
-export default MainTabScreen;
+export default observer(MainTabScreen);
 
 const HomeStackScreen = ({ navigation }) => {
   const [postScreen, setPostScreen] = React.useState(false);
   return (
+    // console.log(JSON.parse(UserStore.userDetails.credentials.topArtists)),
     <HomeStack.Navigator
       screenOptions={{
         headerStyle: {
@@ -111,6 +114,15 @@ const HomeStackScreen = ({ navigation }) => {
               color="#21295c"
               onPress={() => navigation.openDrawer()}
               style={{ marginLeft: 5 }}
+            ></Icon.Button>
+          ),
+          headerRight: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#fff"
+              color="#007bff"
+              onPress={() => setPostScreen(!postScreen)}
             ></Icon.Button>
           ),
         }}

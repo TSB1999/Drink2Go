@@ -75,7 +75,7 @@ const SignInScreen = ({ navigation }) => {
   React.useEffect(() => {
     if (response?.type === "success") {
       const { code } = response.params;
-      console.log(code);
+      // console.log(code);
 
       axios({
         method: "post",
@@ -196,7 +196,6 @@ const SignInScreen = ({ navigation }) => {
   };
 
   return (
-    console.log(UserStore.isLoggedIn),
     (
       <View style={styles.container}>
         <StatusBar backgroundColor="#009387" barStyle="light-content" />
@@ -306,8 +305,8 @@ const SignInScreen = ({ navigation }) => {
               {data.secureTextEntry ? (
                 <Feather name="eye-off" color="grey" size={20} />
               ) : (
-                <Feather name="eye" color="grey" size={20} />
-              )}
+                  <Feather name="eye" color="grey" size={20} />
+                )}
             </TouchableOpacity>
           </View>
 

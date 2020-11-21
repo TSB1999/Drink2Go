@@ -6,6 +6,7 @@ import Body from "./post-components/Body";
 import Footer from "./post-components/Footer";
 import UserStore from "../stores/UserStore";
 import spotifyAPI from "./SpotifyAPI";
+import { LinearGradient } from "expo-linear-gradient";
 
 let track_album = [];
 
@@ -94,10 +95,9 @@ export class Post extends Component {
     return (
       <View
         style={{
-          borderBottomWidth: 2,
+          borderTopWidth: 2,
           borderColor: "#007bff",
           backgroundColor: "#fff",
-          marginBottom: 10,
         }}
       >
         <Header

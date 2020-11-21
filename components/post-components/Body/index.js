@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Image, Text, View, ScrollView } from "react-native";
 import styles from "./styles";
 import { v4 as uuidv4 } from "uuid";
@@ -25,12 +25,22 @@ const Body = ({ thisTrack, caption, status }) => {
               marginBottom: 5,
             }}
           >
-            <Text style={styles.artist}>{thisTrack.artist}</Text>
+            <Text
+              style={{
+                backgroundColor: "#fff",
+                fontWeight: "bold",
+                color: "#21295c",
+              }}
+            >
+              {thisTrack.artist}
+            </Text>
           </View>
         </View>
         <Image source={{ uri: thisTrack.image }} style={styles.image2} />
         <View>
-          <Text style={styles.caption}>{caption}</Text>
+          <View>
+            <Text style={styles.caption}>{caption}</Text>
+          </View>
         </View>
       </View>
     );
@@ -67,7 +77,9 @@ const Body = ({ thisTrack, caption, status }) => {
         </View>
 
         <View>
-          <Text style={styles.caption}>{caption}</Text>
+          <View style={{ backgroundColor: "#007bff" }}>
+            <Text style={styles.caption}>{caption}</Text>
+          </View>
         </View>
       </View>
     );

@@ -30,14 +30,17 @@ export function DrawerContent(props) {
             <View style={{ flexDirection: "row", marginTop: 15 }}>
               <Avatar.Image
                 source={{
-                  uri:
-                    "https://pbs.twimg.com/profile_images/1322108854381981696/qZtM5Cw3_400x400.jpg",
+                  uri: UserStore.spotifyUserDetails.user_image,
                 }}
                 size={50}
               />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
-                <Title style={styles.title}>KEEM</Title>
-                <Caption style={styles.caption}>±EQUIAKNOW</Caption>
+                <Title style={styles.title}>
+                  {UserStore.spotifyUserDetails.user_name}
+                </Title>
+                <Caption
+                  style={styles.caption}
+                >{`±${UserStore.spotifyUserDetails.user_name}`}</Caption>
               </View>
             </View>
 
