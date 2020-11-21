@@ -29,6 +29,7 @@ import { Buffer } from "buffer";
 import img1 from "/Users/tsb99/Documents/App-Dev/projMELO/images/Sonar1st.png";
 import UserStore from "../stores/UserStore";
 import { observer } from "mobx-react";
+import { acc } from "react-native-reanimated";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -97,6 +98,8 @@ const SignInScreen = ({ navigation }) => {
           const { access_token, refresh_token } = res.data;
           spotifyAPI.setAccessToken(access_token);
           getSpotifyDetails(access_token, refresh_token);
+          // SpotifySDK.loginWithSession(access_token, )
+          console.log(res.data)
         })
         .catch((err) => console.log(err));
     }

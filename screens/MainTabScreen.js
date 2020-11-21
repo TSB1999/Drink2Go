@@ -41,7 +41,7 @@ const MainTabScreen = () => {
       />
       <Tab.Screen
         name="Me"
-        component={UserStackScreen}
+        component={ProfileScreen}
         options={{
           tabBarLabel: "Me",
           tabBarColor: "#fff",
@@ -203,7 +203,7 @@ const UserStackScreen = ({ navigation }) => (
       name="Me"
       component={ProfileScreen}
       options={{
-        title: "Me",
+        title: "EQUIAKNOW",
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
