@@ -14,18 +14,18 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import UserStore from '../stores/UserStore';
 import axios from 'axios'
 import Post from '../components/Post'
-import { auth as SpotifyAuth, remote as SpotifyRemote, ApiScope, ApiConfig } from 'react-native-spotify-remote';
+// import { auth as SpotifyAuth, remote as SpotifyRemote, ApiScope, ApiConfig } from 'react-native-spotify-remote';
 
 const Profile = ({ navigation }) => {
-    async function playEpicSong() {
-        try {
-            const token = await UserStore.spotifyUserDetails.access_token;
-            await SpotifyRemote.connect(token);
-            SpotifyRemote.playUri("spotify:track:6IA8E2Q5ttcpbuahIejO74#0:38");
-        } catch (err) {
-            console.error("Couldn't authorize with or connect to Spotify", err);
-        }
-    }
+    // async function playEpicSong() {
+    //     try {
+    //         const token = await UserStore.spotifyUserDetails.access_token;
+    //         await SpotifyRemote.connect(token);
+    //         SpotifyRemote.playUri("spotify:track:6IA8E2Q5ttcpbuahIejO74#0:38");
+    //     } catch (err) {
+    //         console.error("Couldn't authorize with or connect to Spotify", err);
+    //     }
+    // }
     const [postData, setPostData] = React.useState([])
     useEffect;
     useEffect(() => {
@@ -60,7 +60,7 @@ const Profile = ({ navigation }) => {
 
     const _renderItem1 = ({ item, index }) => {
         return (
-            <View onPress={playEpicSong} style={{ width: Dimensions.get("window").width / 2 }}>
+            <View style={{ width: Dimensions.get("window").width / 2 }}>
                 <Image style={{ alignSelf: 'center', borderRadius: 5 }} source={{ uri: item.images, height: 3 * Dimensions.get("window").width / 10, width: 3 * Dimensions.get("window").width / 10 }} />
                 <Text style={{ padding: 5, textAlign: 'center', margin: 5, backgroundColor: '#007bff', color: '#fff', fontWeight: 'bold', }} numberOfLines={1}>{item.title}</Text>
             </View>
