@@ -28,15 +28,15 @@ function App() {
             <Drawer.Screen name="PostDrawer" component={PostScreen} />
           </Drawer.Navigator>
         ) : (
-          <Drawer.Navigator
-            drawerContent={(props) => <DrawerContent {...props} />}
-          >
-            <Drawer.Screen name="HomeDrawer" component={LoadingPage} />
-          </Drawer.Navigator>
-        )
+            <Drawer.Navigator
+              drawerContent={(props) => <DrawerContent {...props} />}
+            >
+              <Drawer.Screen name="HomeDrawer" component={LoadingPage} />
+            </Drawer.Navigator>
+          )
       ) : (
-        <RootStackScreen />
-      )}
+          <RootStackScreen />
+        )}
     </NavigationContainer>
   );
 }

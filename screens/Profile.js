@@ -30,12 +30,12 @@ const Profile = ({ navigation }) => {
     useEffect;
     useEffect(() => {
         console.log(UserStore.userDetails.credentials.meloID)
-        axios.get(`https://europe-west1-projectmelo.cloudfunctions.net/api/user/${UserStore.userDetails.credentials.meloID}`)
-            .then(res => {
-                console.log(res.data)
-                setPostData(res.data.posts)
-            })
-            .catch(err => console.log(err))
+        // axios.get(`https://europe-west1-projectmelo.cloudfunctions.net/api/user/${UserStore.userDetails.credentials.meloID}`)
+        //     .then(res => {
+        //         console.log(res.data)
+        //         setPostData(res.data.posts)
+        //     })
+        //     .catch(err => console.log(err))
 
 
     }, []);

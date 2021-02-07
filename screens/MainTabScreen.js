@@ -7,6 +7,7 @@ import ProfileScreen from "./Profile.js";
 import SpotifyScreen from "./Spotify.js";
 import PostScreen from "./PostScreen.js";
 
+import Entypo from "react-native-vector-icons/Entypo";
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -24,65 +25,31 @@ const MainTabScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      activeColor="#007bff"
-      inactiveColor="black"
+      activeColor="#fff"
       style={{ backgroundColor: "tomato" }}
     >
       <Tab.Screen
-        name="Home"
+        name="Drinks"
         component={HomeStackScreen}
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "",
           tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
-            <Icon1 name="chart-timeline-variant" color={color} size={26} />
+            <Entypo name="cup" color={color} size={26} />
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Me"
-        component={ProfileScreen}
+        component={HomeStackScreen}
         options={{
-          tabBarLabel: "Me",
+          tabBarLabel: "",
           tabBarColor: "#fff",
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person" color={color} size={26} />
           ),
         }}
-      />
-      <Tab.Screen
-        name="Discover"
-        component={PostStackScreen}
-        options={{
-          tabBarLabel: "Discover",
-          tabBarColor: "#fff",
-          tabBarIcon: ({ color }) => (
-            <Icon name="ios-musical-notes" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Inbox"
-        component={UserStackScreen}
-        options={{
-          tabBarLabel: "Messages",
-          tabBarColor: "#fff",
-          tabBarIcon: ({ color }) => (
-            <Icon1 name="message-reply-text" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Spotify"
-        component={SpotifyStackScreen}
-        options={{
-          tabBarLabel: "Spotify",
-          tabBarColor: "#1DB954",
-          tabBarIcon: ({ color }) => (
-            <Icon1 name="spotify" color={color} size={26} />
-          ),
-        }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };
@@ -90,7 +57,6 @@ const MainTabScreen = () => {
 export default observer(MainTabScreen);
 
 const HomeStackScreen = ({ navigation }) => {
-  const [postScreen, setPostScreen] = React.useState(false);
   return (
     // console.log(JSON.parse(UserStore.userDetails.credentials.topArtists)),
     <HomeStack.Navigator
@@ -103,9 +69,9 @@ const HomeStackScreen = ({ navigation }) => {
     >
       <HomeStack.Screen
         name="Home"
-        component={() => <HomeScreen postScreen={postScreen}></HomeScreen>}
+        component={HomeScreen}
         options={{
-          title: "meloDIFY",
+          title: "DRINKS2GO",
           headerLeft: () => (
             <Icon.Button
               name="ios-menu"
@@ -122,7 +88,6 @@ const HomeStackScreen = ({ navigation }) => {
               size={25}
               backgroundColor="#fff"
               color="#007bff"
-              onPress={() => setPostScreen(!postScreen)}
             ></Icon.Button>
           ),
         }}
